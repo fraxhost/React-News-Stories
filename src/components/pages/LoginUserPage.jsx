@@ -1,9 +1,14 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import jwt from "jwt-decode";
 
+import AuthContext from "../../contexts/AuthContext";
 import LoginUserForm from "../users/LoginUserForm";
+import jwtDecode from "jwt-decode";
 
 function LoginUserPage() {
   const navigate = useNavigate();
+  const authCtx = useContext(AuthContext);
 
   function loginUserHandler(userData) {
     fetch("https://localhost:5001/api/accounts/login", {
@@ -15,15 +20,23 @@ function LoginUserPage() {
     })
       .then((response) => {
         return response.json();
-        // navigate("/");
       })
       .then((data) => {
-        console.log(data);
-        localStorage.setItem("username", data.userId);
+        localStorage.setItem("userName", data.userId);
         localStorage.setItem("token", data.token);
 
-        console.log("un", localStorage.getItem("username"));
-        console.log("tn", localStorage.getItem("token"));
+        const user = jwt(data.token);
+        console.log(user);
+
+        localStorage.setItem("userId", user.Id);
+
+        authCtx.addCredentials({
+          userId: user.Id,
+          userName: data.userId,
+          token: data.token,
+        });
+
+        navigate("/");
       });
   }
 
