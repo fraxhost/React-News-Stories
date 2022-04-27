@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { Nav, Navbar, Container } from "react-bootstrap";
+
 import AuthContext from "../../contexts/AuthContext";
 import Logout from "../auths/Logout";
-
-import classes from "./MainNavigation.module.css";
 
 function MainNavigation() {
   const authCtx = useContext(AuthContext);
@@ -14,39 +14,45 @@ function MainNavigation() {
 
   if (loggedIn) {
     content = (
-      <ul>
-        <li>
-          <Link to="/">All Stories</Link>
-        </li>
-        <li>
-          <Link to="/new-story">Add New Story</Link>
-        </li>
-      </ul>
+      <Nav>
+        <Nav.Link as={NavLink} to="/">
+          All Stories
+        </Nav.Link>
+        <Nav.Link as={NavLink} to="/new-story">
+          Add New Story
+        </Nav.Link>
+      </Nav>
     );
   }
 
   if (!loggedIn) {
     content = (
-      <ul>
-        <li>
-          <Link to="/">All Stories</Link>
-        </li>
-        <li>
-          <Link to="/register">Register</Link>
-        </li>
-        <li>
-          <Link to="/login">Login</Link>
-        </li>
-      </ul>
+      <Nav>
+        <Nav.Link as={NavLink} to="/">
+          All Stories
+        </Nav.Link>
+        <Nav.Link as={NavLink} to="/register">
+          Register
+        </Nav.Link>
+        {/* <Nav.Link as={NavLink} to="/login" className="justify-content-end">
+          Login
+        </Nav.Link> */}
+      </Nav>
     );
   }
 
   return (
-    <header className={classes.header}>
-      <div className={classes.logo}>News Stories</div>
-      <nav>{content}</nav>
-      {loggedIn ? <Logout /> : <p></p>}
-    </header>
+    <Navbar collapseOnSelect bg="dark" variant="dark">
+      <Container>
+        <Navbar.Brand as={Link} to="/">
+          <h3 className="display-6">News Stories</h3>
+        </Navbar.Brand>
+        <Navbar.Collapse className="justify-content-center">
+          {content}
+        </Navbar.Collapse>
+        {loggedIn ? <Logout /> : <p></p>}
+      </Container>
+    </Navbar>
   );
 }
 

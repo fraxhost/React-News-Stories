@@ -1,10 +1,9 @@
 import { useState, useContext } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Card, Row, Col, Container } from "react-bootstrap";
 
 import AuthContext from "../../contexts/AuthContext";
 import EditStoryModal from "../modals/EditStoryModal";
 import DeleteStory from "./DeleteStory";
-import Card from "../ui/Card";
 
 function StoryItem(props) {
   const authCtx = useContext(AuthContext);
@@ -13,24 +12,28 @@ function StoryItem(props) {
 
   if (authCtx.userId === props.authorId) {
     content = (
-      <div>
-        <EditStoryModal story={props} />
-        <DeleteStory storyId={props.id} />
-      </div>
+      <Container fluid>
+        <Row>
+          <EditStoryModal off="8" story={props} />
+          <DeleteStory off="0" storyId={props.id} />
+        </Row>
+      </Container>
     );
   }
 
   return (
-    <li>
-      <Card>
-        <div>{props.id}</div>
-        <div>{props.title}</div>
-        <div>{props.body}</div>
-        <div>{props.publishedDate}</div>
-        <div>{props.authorId}</div>
+    <Card className="mb-3">
+      <Card.Body>
+        <Card.Title>
+          <h4>{props.title}</h4>
+        </Card.Title>
+        <Card.Subtitle className="muted offset-1">
+          - {props.authorName} on {props.publishedDate.substring(0, 10)}
+        </Card.Subtitle>
+        <Card.Text className="mt-3">{props.body}</Card.Text>
         {content}
-      </Card>
-    </li>
+      </Card.Body>
+    </Card>
   );
 }
 

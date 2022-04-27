@@ -24,18 +24,8 @@ function NewStoryPage() {
     });
   }
 
-  let content;
-
-  if (authCtx.token === "") {
-    content = <p>User is not logged in...</p>;
-  } else {
-    content = <p>User is already logged in...</p>;
-  }
-
   return (
     <section>
-      {content}
-      <h1>Add New Story</h1>
       <NewStoryForm onAddStory={addStoryHandler} />
     </section>
   );

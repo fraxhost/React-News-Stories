@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 import AuthContext from "../../contexts/AuthContext";
@@ -27,9 +27,11 @@ function DeleteStory(props) {
   }
 
   return (
-    <Button variant="danger" onClick={deleteStoryHandler}>
-      Delete
-    </Button>
+    <Col md={{ offset: props.off }}>
+      <Button variant="danger" onClick={deleteStoryHandler}>
+        Delete
+      </Button>
+    </Col>
   );
 }
 

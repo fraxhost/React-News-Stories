@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-import Card from "../ui/Card";
+import { Card } from "react-bootstrap";
 import classes from "./UserForm.module.css";
 
 function RegisterUserForm(props) {

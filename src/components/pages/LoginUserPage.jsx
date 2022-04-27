@@ -4,7 +4,7 @@ import jwt from "jwt-decode";
 
 import AuthContext from "../../contexts/AuthContext";
 import LoginUserForm from "../users/LoginUserForm";
-import jwtDecode from "jwt-decode";
+
 
 function LoginUserPage() {
   const navigate = useNavigate();

@@ -1,30 +1,45 @@
 import { useEffect, useState } from "react";
 
 import StoryList from "../stories/StoryList";
+import Pagination from "../layouts/Pagination";
 
 function AllStoriesPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [loadedStories, setLoadedStories] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(2);
+  const [totalPages, setTotalPages] = useState(0);
 
   useEffect(() => {
     setIsLoading(true);
-    fetch("https://localhost:5001/api/stories")
+
+    let url = `https://localhost:5001/api/stories?pageSize=${postsPerPage}&pageNumber=${currentPage}`;
+
+    fetch(url)
       .then((response) => {
         return response.json();
       })
-      .then((data) => {
+      .then((result) => {
         const stories = [];
 
-        data.forEach((story) => {
+        result.data.forEach((story) => {
           stories.push(story);
         });
 
         setIsLoading(false);
         setLoadedStories(stories);
+        setTotalPages(result.totalPage);
+        setCurrentPage(result.currentPage);
 
-        console.log(stories);
+        console.log("I got called");
       });
-  }, []);
+  }, [currentPage]);
+
+  function onPageChange(selected) {
+    const page = selected.selected + 1;
+    console.log("clicked", page);
+    setCurrentPage(page);
+  }
 
   if (isLoading) {
     return (
@@ -36,8 +51,12 @@ function AllStoriesPage() {
 
   return (
     <section>
-      <h1>All Stories</h1>
       <StoryList stories={loadedStories} />
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        pageChanged={onPageChange}
+      />
     </section>
   );
 }

@@ -1,6 +1,6 @@
 import { useState, useContext, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { Button, Modal } from "react-bootstrap";
+import { Button, Modal, Col } from "react-bootstrap";
 
 import EditStoryForm from "../stories/EditStoryForm";
 import AuthContext from "../../contexts/AuthContext";
@@ -43,7 +43,7 @@ function EditStoryModal(props) {
   };
 
   return (
-    <div>
+    <Col md={{ offset: props.off }}>
       <Button variant="primary" onClick={modalHandler}>
         Edit
       </Button>
@@ -65,7 +65,7 @@ function EditStoryModal(props) {
           </Button>
         </Modal.Footer>
       </Modal>
-    </div>
+    </Col>
   );
 }
 

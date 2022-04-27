@@ -11,6 +11,7 @@ function StoryList(props) {
           body={story.body}
           publishedDate={story.publishedDate}
           authorId={story.authorId}
+          authorName={story.authorName}
         />
       ))}
     </ul>
