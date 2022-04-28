@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Button, Col } from "react-bootstrap";
+import { Button, Col, Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 import AuthContext from "../../contexts/AuthContext";
@@ -27,11 +27,11 @@ function DeleteStory(props) {
   }
 
   return (
-    <Col md={{ offset: props.off }}>
-      <Button variant="danger" onClick={deleteStoryHandler}>
+    <div className="d-inline-flex">
+      <Button variant="warning" onClick={deleteStoryHandler}>
         Delete
       </Button>
-    </Col>
+    </div>
   );
 }
 

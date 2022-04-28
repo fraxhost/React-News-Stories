@@ -1,6 +1,6 @@
 import { useState, useContext, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { Button, Modal, Col } from "react-bootstrap";
+import { Button, Modal, Col, Container } from "react-bootstrap";
 
 import EditStoryForm from "../stories/EditStoryForm";
 import AuthContext from "../../contexts/AuthContext";
@@ -43,8 +43,8 @@ function EditStoryModal(props) {
   };
 
   return (
-    <Col md={{ offset: props.off }}>
-      <Button variant="primary" onClick={modalHandler}>
+    <div className="d-inline-flex">
+      <Button variant="success" onClick={modalHandler}>
         Edit
       </Button>
       <Modal show={isOpen}>
@@ -65,7 +65,7 @@ function EditStoryModal(props) {
           </Button>
         </Modal.Footer>
       </Modal>
-    </Col>
+    </div>
   );
 }
 

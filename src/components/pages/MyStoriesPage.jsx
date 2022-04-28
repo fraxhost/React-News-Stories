@@ -3,17 +3,19 @@ import { useEffect, useState } from "react";
 import StoryList from "../stories/StoryList";
 import Pagination from "../layouts/Pagination";
 
-function AllStoriesPage() {
+function MyStoriesPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [loadedStories, setLoadedStories] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
 
-  const postsPerPage = 3;
+  const postsPerPage = 2;
 
   useEffect(() => {
     setIsLoading(true);
-    let url = `https://localhost:5001/api/stories?pageSize=${postsPerPage}&pageNumber=${currentPage}`;
+    const authorId = localStorage.getItem("userId");
+
+    let url = `https://localhost:5001/api/stories?pageSize=${postsPerPage}&pageNumber=${currentPage}&authorId=${authorId}`;
 
     fetch(url)
       .then((response) => {
@@ -31,7 +33,7 @@ function AllStoriesPage() {
         setTotalPages(result.totalPage);
         setCurrentPage(result.currentPage);
 
-        console.log("I got called");
+        // console.log(" got called");
       });
   }, [currentPage]);
 
@@ -61,4 +63,4 @@ function AllStoriesPage() {
   );
 }
 
-export default AllStoriesPage;
+export default MyStoriesPage;

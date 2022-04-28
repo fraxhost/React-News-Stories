@@ -10,14 +10,15 @@ function Logout() {
 
   function logoutHandler() {
     console.log("clicked");
-    localStorage.removeItem("username");
+    localStorage.removeItem("userName");
+    localStorage.removeItem("userId");
     localStorage.removeItem("token");
     authCtx.removeCredentials();
     navigate("/");
   }
 
   return (
-    <Button variant="danger" onClick={logoutHandler}>
+    <Button variant="outline-danger" onClick={logoutHandler}>
       Logout
     </Button>
   );

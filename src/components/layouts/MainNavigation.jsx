@@ -18,8 +18,14 @@ function MainNavigation() {
         <Nav.Link as={NavLink} to="/">
           All Stories
         </Nav.Link>
+        <Nav.Link as={NavLink} to="/my-story">
+          My Stories
+        </Nav.Link>
         <Nav.Link as={NavLink} to="/new-story">
           Add New Story
+        </Nav.Link>
+        <Nav.Link as={NavLink} to="/search">
+          Search
         </Nav.Link>
       </Nav>
     );
@@ -34,9 +40,6 @@ function MainNavigation() {
         <Nav.Link as={NavLink} to="/register">
           Register
         </Nav.Link>
-        {/* <Nav.Link as={NavLink} to="/login" className="justify-content-end">
-          Login
-        </Nav.Link> */}
       </Nav>
     );
   }
