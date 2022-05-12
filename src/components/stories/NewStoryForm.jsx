@@ -1,16 +1,32 @@
 import { useRef } from "react";
 
-import Card from "../ui/Card";
+import { Card } from "react-bootstrap";
 import classes from "./NewStoryForm.module.css";
 
-function NewStoryForm() {
+function NewStoryForm(props) {
   const titleInputRef = useRef();
   const bodyInputRef = useRef();
   const dateInputRef = useRef();
 
+  function publishHandler(event) {
+    event.preventDefault();
+
+    const enteredTitle = titleInputRef.current.value;
+    const enteredBody = bodyInputRef.current.value;
+    const enteredDate = dateInputRef.current.value;
+
+    const storyData = {
+      title: enteredTitle,
+      body: enteredBody,
+      publishedDate: enteredDate,
+    };
+
+    props.onAddStory(storyData);
+  }
+
   return (
     <Card>
-      <form className={classes.form}>
+      <form className={classes.form} onSubmit={publishHandler}>
         <div className={classes.control}>
           <label htmlFor="title">Story Title</label>
           <input type="text" required id="title" ref={titleInputRef} />
