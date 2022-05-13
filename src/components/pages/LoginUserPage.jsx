@@ -5,13 +5,12 @@ import jwt from "jwt-decode";
 import AuthContext from "../../contexts/AuthContext";
 import LoginUserForm from "../users/LoginUserForm";
 
-
 function LoginUserPage() {
   const navigate = useNavigate();
   const authCtx = useContext(AuthContext);
 
   function loginUserHandler(userData) {
-    fetch("https://localhost:5001/api/accounts/login", {
+    fetch("http://news-stories.cefalo.com:8081/api/accounts/login", {
       method: "POST",
       body: JSON.stringify(userData),
       headers: {
