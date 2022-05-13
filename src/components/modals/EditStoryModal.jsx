@@ -15,7 +15,7 @@ function EditStoryModal(props) {
   const token = authCtx.token;
 
   function editStoryHandler(storyId, storyData) {
-    let url = "http://news-stories.cefalo.com:8081/api/stories/" + storyId;
+    let url = "https://news-stories.cefalo.com:8082/api/stories/" + storyId;
 
     fetch(url, {
       method: "PATCH",

@@ -12,7 +12,7 @@ function DeleteStory(props) {
 
   function deleteStoryHandler() {
     let url =
-      "http://news-stories.cefalo.com:8081/api/stories/" + props.storyId;
+      "https://news-stories.cefalo.com:8082/api/stories/" + props.storyId;
 
     fetch(url, {
       method: "DELETE",

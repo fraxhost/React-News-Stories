@@ -10,7 +10,7 @@ function RegisterUserPage() {
   const authCtx = useContext(AuthContext);
 
   function registerUserHandler(userData) {
-    fetch("http://news-stories.cefalo.com:8081/api/accounts/register", {
+    fetch("https://news-stories.cefalo.com:8082/api/accounts/register", {
       method: "POST",
       body: JSON.stringify(userData),
       headers: {
