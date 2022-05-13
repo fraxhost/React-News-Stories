@@ -13,7 +13,7 @@ function AllStoriesPage() {
 
   useEffect(() => {
     setIsLoading(true);
-    let url = `http://news-stories.cefalo.com:8081/api/stories?pageSize=${postsPerPage}&pageNumber=${currentPage}`;
+    let url = `https://news-stories.cefalo.com:8082/api/stories?pageSize=${postsPerPage}&pageNumber=${currentPage}`;
 
     fetch(url)
       .then((response) => {

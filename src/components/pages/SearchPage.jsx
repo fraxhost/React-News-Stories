@@ -19,7 +19,7 @@ function SearchPage() {
 
   useEffect(() => {
     setIsLoading(true);
-    let url = `http://news-stories.cefalo.com:8081/api/stories/search?pageSize=${postsPerPage}&pageNumber=${currentPage}&searchString=${searchString}`;
+    let url = `https://news-stories.cefalo.com:8082/api/stories/search?pageSize=${postsPerPage}&pageNumber=${currentPage}&searchString=${searchString}`;
     fetch(url)
       .then((response) => {
         return response.json();
