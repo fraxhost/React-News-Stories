@@ -33,7 +33,7 @@ function StoryItem(props) {
   }
 
   function downloadJson() {
-    fetch(`https://localhost:5001/api/stories/${props.id}`, {
+    fetch(`http://news-stories.cefalo.com:8081/api/stories/${props.id}`, {
       method: "GET",
       headers: {
         Accept: "application/json",

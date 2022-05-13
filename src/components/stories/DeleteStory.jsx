@@ -11,7 +11,8 @@ function DeleteStory(props) {
   const token = authCtx.token;
 
   function deleteStoryHandler() {
-    let url = "https://localhost:5001/api/stories/" + props.storyId;
+    let url =
+      "http://news-stories.cefalo.com:8081/api/stories/" + props.storyId;
 
     fetch(url, {
       method: "DELETE",
