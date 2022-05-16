@@ -15,7 +15,7 @@ function MyStoriesPage() {
     setIsLoading(true);
     const authorId = localStorage.getItem("userId");
 
-    let url = `https://news-stories.cefalo.com:8082/api/stories?pageSize=${postsPerPage}&pageNumber=${currentPage}&authorId=${authorId}`;
+    let url = `${process.env.REACT_APP_HOST}/api/stories?pageSize=${postsPerPage}&pageNumber=${currentPage}&authorId=${authorId}`;
 
     fetch(url)
       .then((response) => {

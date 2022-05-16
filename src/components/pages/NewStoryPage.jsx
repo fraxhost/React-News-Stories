@@ -11,7 +11,7 @@ function NewStoryPage() {
   const token = authCtx.token;
 
   function addStoryHandler(storyData) {
-    fetch("https://news-stories.cefalo.com:8082/api/stories", {
+    fetch("${process.env.REACT_APP_HOST}/api/stories", {
       method: "POST",
       body: JSON.stringify(storyData),
       headers: {

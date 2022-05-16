@@ -11,8 +11,10 @@ import ReadMoreReadLess from "./ReadMoreReadLess";
 function StoryItem(props) {
   const authCtx = useContext(AuthContext);
 
+  const host = `${process.env.REACT_APP_HOST}`;
+
   function downloadXml() {
-    fetch(`https://localhost:5001/api/stories/${props.id}`, {
+    fetch(`${host}/api/stories/${props.id}`, {
       method: "GET",
       headers: {
         Accept: "application/xml",
@@ -33,7 +35,7 @@ function StoryItem(props) {
   }
 
   function downloadJson() {
-    fetch(`https://news-stories.cefalo.com:8082/api/stories/${props.id}`, {
+    fetch(`${host}/api/stories/${props.id}`, {
       method: "GET",
       headers: {
         Accept: "application/json",
