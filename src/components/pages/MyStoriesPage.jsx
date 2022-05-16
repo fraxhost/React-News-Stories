@@ -32,14 +32,11 @@ function MyStoriesPage() {
         setLoadedStories(stories);
         setTotalPages(result.totalPage);
         setCurrentPage(result.currentPage);
-
-        // console.log(" got called");
       });
   }, [currentPage]);
 
   function onPageChange(selected) {
     const page = selected.selected + 1;
-    console.log("clicked", page);
     setCurrentPage(page);
   }
 

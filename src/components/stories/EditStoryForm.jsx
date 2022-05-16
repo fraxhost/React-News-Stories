@@ -21,7 +21,6 @@ const EditStoryForm = forwardRef((props, ref) => {
         date: enteredDate,
       };
 
-      console.log(storyData);
       props.onStoryEdit(storyId, storyData);
     },
   }));

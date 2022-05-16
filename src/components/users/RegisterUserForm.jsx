@@ -69,7 +69,6 @@ function RegisterUserForm(props) {
       Roles: ["General"],
     };
 
-    console.log(userData);
     props.onRegisterUser(userData);
   }
 

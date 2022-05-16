@@ -25,7 +25,6 @@ function EditStoryModal(props) {
         Authorization: "Bearer " + token,
       },
     }).then(() => {
-      console.log("Story Updated...");
       modalHandler();
       navigate("/");
       window.location.reload(false);

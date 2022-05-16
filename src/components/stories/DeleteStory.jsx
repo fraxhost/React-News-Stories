@@ -20,7 +20,6 @@ function DeleteStory(props) {
         Authorization: "Bearer " + token,
       },
     }).then(() => {
-      console.log("Story Deleted...");
       navigate("/");
       window.location.reload(false);
     });

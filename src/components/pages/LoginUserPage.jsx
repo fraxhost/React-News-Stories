@@ -25,7 +25,6 @@ function LoginUserPage() {
         localStorage.setItem("token", data.token);
 
         const user = jwt(data.token);
-        console.log(user);
 
         localStorage.setItem("userId", user.Id);
 
