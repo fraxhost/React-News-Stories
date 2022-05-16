@@ -10,7 +10,7 @@ function LoginUserPage() {
   const authCtx = useContext(AuthContext);
 
   function loginUserHandler(userData) {
-    fetch("${process.env.REACT_APP_HOST}/api/accounts/login", {
+    fetch(`${process.env.REACT_APP_HOST}/api/accounts/login`, {
       method: "POST",
       body: JSON.stringify(userData),
       headers: {

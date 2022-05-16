@@ -11,7 +11,7 @@ function NewStoryPage() {
   const token = authCtx.token;
 
   function addStoryHandler(storyData) {
-    fetch("${process.env.REACT_APP_HOST}/api/stories", {
+    fetch(`${process.env.REACT_APP_HOST}/api/stories`, {
       method: "POST",
       body: JSON.stringify(storyData),
       headers: {
