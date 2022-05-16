@@ -56,6 +56,7 @@ function StoryItem(props) {
   }
 
   let content;
+  let readMore;
 
   if (authCtx.userId === props.authorId) {
     content = (
@@ -81,6 +82,12 @@ function StoryItem(props) {
     );
   }
 
+  if (props.body.length > 100) {
+    readMore = <ReadMoreReadLess limit={100}>{props.body}</ReadMoreReadLess>;
+  } else {
+    readMore = props.body;
+  }
+
   return (
     <Col>
       <Card style={{ width: "100%" }}>
@@ -92,7 +99,8 @@ function StoryItem(props) {
             - {props.authorName} on {props.publishedDate.substring(0, 10)}
           </Card.Subtitle>
           <hr />
-          <ReadMoreReadLess limit={100}>{props.body}</ReadMoreReadLess>
+
+          {readMore}
           <hr />
           {content}
         </Card.Body>
