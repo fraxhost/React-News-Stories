@@ -19,7 +19,6 @@ function NewStoryPage() {
         Authorization: "Bearer " + token,
       },
     }).then(() => {
-      console.log("Story Added...");
       navigate("/");
     });
   }

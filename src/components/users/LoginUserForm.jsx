@@ -18,7 +18,6 @@ function LoginUserForm(props) {
       Password: enteredPassword,
     };
 
-    console.log(userData);
     props.onLoginUser(userData);
   }
 
