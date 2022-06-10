@@ -13,7 +13,7 @@ function SearchPage() {
   const [totalPages, setTotalPages] = useState(0);
   const [searchString, setSearchString] = useState("");
 
-  const postsPerPage = 3;
+  const postsPerPage = 4;
 
   let content;
 
