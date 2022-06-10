@@ -9,7 +9,7 @@ function MyStoriesPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
 
-  const postsPerPage = 2;
+  const postsPerPage = 4;
 
   useEffect(() => {
     setIsLoading(true);
